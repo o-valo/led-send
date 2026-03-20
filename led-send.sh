@@ -1,41 +1,35 @@
 #!/bin/bash
 
+# ==============================================================================
+# led-send.sh - Vereinfachter Wrapper für pypixelcolor
+# ==============================================================================
 
-# Name des venv-Ordners (hier anpassen, falls deiner anders heißt, z.B. .venv)
+# Konfiguration
 VENV_NAME="led_env"
-
-# 1. Prüfen, ob die Umgebung bereits aktiv ist
-if [[ -n "$VIRTUAL_ENV" ]]; then
-    echo "Bereits in einer virtuellen Umgebung: $VIRTUAL_ENV"
-else
-    # 2. Prüfen, ob der venv-Ordner im aktuellen Verzeichnis existiert
-    if [ -d "$VENV_NAME" ]; then
-        echo "Aktiviere Umgebung aus $VENV_NAME..."
-        source "$VENV_NAME/bin/activate"
-    else
-        echo "Fehler: Keine Umgebung '$VENV_NAME' gefunden."
-        echo "Möchtest du sie mit 'python3 -m venv $VENV_NAME' erstellen?"
-        # Optional: Hier könnte man das Erstellen automatisieren
-    fi
-fi
-
-# Hier kannst du dein eigentliches Programm starten, z.B.:
-# python3 dein_skript.py
-
-
-
-
-# --- Konfiguration ---
 MAC_ADRESSE="AC:B8:89:3C:67:5B"
 FARBE="000000"
 FONT="VCR_OSD_MONO"
 
-# --- Input-Logik ---
-# 1. Prüfen, ob Daten über eine Pipe kommen (z.B. date | ./led-send.sh)
+# 1. Virtuelle Umgebung prüfen/aktivieren
+if [[ -z "$VIRTUAL_ENV" ]]; then
+    # Ermittelt das Verzeichnis, in dem dieses Skript liegt
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    
+    if [ -d "$SCRIPT_DIR/$VENV_NAME" ]; then
+        source "$SCRIPT_DIR/$VENV_NAME/bin/activate"
+    else
+        echo "Fehler: Virtuelle Umgebung '$VENV_NAME' nicht in $SCRIPT_DIR gefunden."
+        echo "Bitte führe zuerst die Installation aus."
+        exit 1
+    fi
+fi
+
+# 2. Input-Logik (Pipe oder Argumente)
 if [ ! -t 0 ]; then
+    # Daten kommen über eine Pipe (z.B. echo "Test" | ./led-send.sh)
     TEXT_ZU_SENDEN=$(cat -)
-# 2. Wenn keine Pipe, dann alle Argumente nehmen (z.B. ./led-send.sh Hallo Welt)
 elif [ $# -gt 0 ]; then
+    # Daten kommen als Argumente (z.B. ./led-send.sh Hallo Welt)
     TEXT_ZU_SENDEN="$*"
 else
     echo "Fehler: Kein Text oder Befehl übergeben."
@@ -46,7 +40,7 @@ else
     exit 1
 fi
 
-# Bereinigung: Zeilenumbrüche entfernen (pypixelcolor mag meist einzeiligen Text lieber)
+# Bereinigung: Zeilenumbrüche entfernen
 TEXT_ZU_SENDEN=$(echo "$TEXT_ZU_SENDEN" | tr -d '\n')
 
 echo "Sende: '$TEXT_ZU_SENDEN' an $MAC_ADRESSE..."
@@ -54,4 +48,5 @@ echo "Sende: '$TEXT_ZU_SENDEN' an $MAC_ADRESSE..."
 # Der eigentliche pypixelcolor-Aufruf
 pypixelcolor -a "$MAC_ADRESSE" -c send_text "$TEXT_ZU_SENDEN" \
     animation=1 speed=100 bg_color="$FARBE" font="$FONT"
-~
+
+#EOF
