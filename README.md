@@ -32,3 +32,6 @@ Powerd by AI
 </video>
 
 
+
+Links:   https://github.com/lucagoc/pypixelcolor   `pypixelcolor`
+
