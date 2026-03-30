@@ -22,3 +22,10 @@ date +%H:%M | ./led-send.sh
 echo "CPU Temp: $(vcgencmd measure_temp)" | ./led-send.sh
 
 Powerd by AI
+
+
+
+![Demo Video](LED-send-example.mp4)
+
+
+
