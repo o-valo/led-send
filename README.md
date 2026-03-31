@@ -21,6 +21,14 @@ date +%H:%M | ./led-send.sh
 ### System-Status:
 echo "CPU Temp: $(vcgencmd measure_temp)" | ./led-send.sh
 
+### Sendet das aktuelle Wetter aus die Matrix :-)
+curl wttr.in/Berlin?format=3 | ./led-send.sh 
+
+### um die Matrix auf dunkel zu schalten: 
+./led-send.sh " "  
+
+
+
 Powerd by AI
 
 
