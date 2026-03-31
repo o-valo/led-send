@@ -41,5 +41,7 @@ Powerd by AI
 
 
 
-Links:   https://github.com/lucagoc/pypixelcolor   `pypixelcolor`
+Projekte und Links:
+Link:   https://github.com/lucagoc/pypixelcolor   'pypixelcolor'
+Link:   https://github.com/chubin/wttr.in   'Wttr.in'
 
