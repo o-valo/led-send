@@ -31,7 +31,9 @@ curl wttr.in/Berlin?format=3 | ./led-send.sh
 
 Powerd by AI
 
-
+<a href="https://github.com/o-valo/led-send/blob/main/LED-send-example.mp4">
+  <img src="https://github.com/o-valo/led-send/blob/main/images/led-foto-1.png?raw=true" alt="Demo Video" width="200">
+</a>
 
 ![Demo Video](LED-send-example.mp4)
 
