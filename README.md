@@ -35,15 +35,13 @@ Powerd by AI
   <img src="https://github.com/o-valo/led-send/blob/main/images/led-foto-1.png?raw=true" alt="Demo Video" width="200">
 </a>
 
+
+[[video:title=LED-send Demo]](https://github.com/o-valo/led-send/raw/refs/heads/main/LED-send-example.mp4)
 ![Demo Video](LED-send-example.mp4)
 
-<p align="center">
-  <video src="https://github.com/o-valo/led-send/blob/main/LED-send-example.mp4?raw=true" width="300" controls>
-    Dein Browser unterstützt das Video-Tag nicht.
-  </video>
 
 
-
+<BR>
 
 <BR>
 Projekte und Links:
