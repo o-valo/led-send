@@ -7,7 +7,9 @@ Ein Tool zur drastischen Vereinfachung der Nutzung von `pypixelcolor`. Es automa
 1. Repo klonen
 2.  Für Debian & Ubuntu Systeme einfach 
  a. `./install.sh` ausfuehren.
+
  b. Bei CachyOS `./install-cachy-os.sh` verwenden. 
+ 
 4. MAC-Adresse in `led-send.sh` anpassen
 
 
