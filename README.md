@@ -2,12 +2,12 @@
 
 Ein Tool zur drastischen Vereinfachung der Nutzung von `pypixelcolor`. Es automatisiert die Aktivierung der Python-Umgebung und ermöglicht das Senden von Texten direkt über die Kommandozeile oder Pipes.
 
-## ⚡ Installation Debian & Ubuntu
+## ⚡ Installation 
 
 1. Repo klonen
-2.  Für Debian und Ubuntu Systeme einfach 
- `./install.sh` ausfuehren.
-## Bei der Verwendung von CachyOS den install-cachy-os.sh  verwenden. 
+2.  Für Debian & Ubuntu Systeme einfach 
+ a. `./install.sh` ausfuehren.
+ b. Bei CachyOS `./install-cachy-os.sh` verwenden. 
 4. MAC-Adresse in `led-send.sh` anpassen
 
 
